@@ -1,0 +1,23 @@
+﻿@using Model.Entities;
+@model SoruVeCevaplarViewModel
+@{
+    ViewData["Title"] = "GameEnd";
+}
+
+<div class="container text-center">
+    <h1 class="mt-5">Oyun Bitti</h1>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <p class="lead">İşte sonuçlarınız:</p>
+
+            <p class="h4">Puanınız: @Model.puan</p>
+            <p class="h4">En İyi Puanınız: @Model.HighScore</p>
+
+            <p class="h4">Kullanıcı Adı: @Model.Username</p>
+
+            <a class="btn btn-primary mt-3" asp-action="Play">Yeniden Oyna</a>
+            <a class="btn btn-primary mt-3" asp-action="Index">Çıkış</a>
+        </div>
+    </div>
+</div>

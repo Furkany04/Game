@@ -1,0 +1,27 @@
+﻿@using Model.Entities;
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "BestUsers";
+}
+
+
+
+<h2>En İyi 10 Oyuncu</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Yüksek Skor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.HighScore</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-primary">Ana Sayfa</a>

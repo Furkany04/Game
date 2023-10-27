@@ -1,0 +1,34 @@
+﻿@using Model.Entities;
+@model SoruVeCevaplarViewModel
+@{
+    ViewData["Title"] = "Play";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mt-4">Kullanıcı: @Model.Username</h2>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h1 class="text-center">@Model.SoruText</h1>
+                    <form asp-action="Play" method="post">
+                        @foreach (var item in Model.Cevaplar)
+                        {
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="SecilenCevap" value="@item" id="cevap-@item">
+                                <label class="form-check-label" for="cevap-@item">
+                                    @item
+                                </label>
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-primary">Cevapla</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="position-absolute top-0 end-0">
+    <span class="badge bg-primary">Puan: @Model.puan</span>
+</div>
+

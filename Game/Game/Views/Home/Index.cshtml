@@ -1,0 +1,51 @@
+﻿@using Model.Entities;
+@model SoruVeCevaplarViewModel
+@{
+    ViewData["Title"] = "Game Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Oyun Formu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Oyuna Başla</h2>
+                        <form asp-controller="Home" asp-action="GameStart" method="post">
+                            <div class="form-group">
+                                <label asp-for="Username">Kullanıcı Adı:</label>
+                                <input asp-for="Username" type="text" class="form-control" id="username" placeholder="Kullanıcı adınızı girin" required>
+                                <label asp-for="Password">Kullanıcı Şifresi:</label>
+                                <input asp-for="Password" type="password" class="form-control" id="userpass" placeholder="Kullanıcı Şifrenizi girin" required>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">Tek kişilik Oyuna Başla</button>
+                                <button type="submit" asp-action="Kaydol" class="btn btn-primary">Kayıt Ol ve Tek kişilik Başla</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-body text-center">
+                        <a asp-action="OnlineOrOffline" class="btn btn-primary">Oda Kur</a>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-action="BestUsers" class="btn btn-primary">En İyi Oyuncular</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
